@@ -28,6 +28,7 @@ Below scenarios are mentioned in disciverCollection.feature file:
 
 Running a specific tag from specific feature file
 mvn test -Dcucumber.options=<path of the featurefile.feature> -Dcucumber.options="--tags @Smoke"
+ 
 Example:
 mvn clean test -Dcucumber.options=src/test/resources/featurefile/discoverCollection.feature -Dcucumber.options="--tags CollectionPageTitle"
 
