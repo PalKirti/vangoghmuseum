@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         tags = "@CollectionPageTitle,@SearchCollection,@VerifyPainting",
         monochrome = true
 )
-//   tags = "@CollectionPageTitle,@SearchCollection,@VerifyPainting")
+
 public class TestRunner {
 
 
