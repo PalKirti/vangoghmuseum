@@ -9,41 +9,49 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 
-public class HomePage extends PageBase{
+public class HomePage extends PageBase {
 
     private WebDriver driver;
     private final Logger log = LoggerHelper.getLogger(HomePage.class);
-     JavaScriptHelper javascripthelper;
+    JavaScriptHelper javascripthelper;
 
     public HomePage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
 
-    @FindBy(how= How.XPATH,using="//a[contains(text(),'Ontdek de collectie')]")
-  //@FindBy(how= How.XPATH,using="//font[contains(text(),'Discover the collection')]//ancestor::a")
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Ontdek de collectie')]")
     public WebElement discoverCollectionLink;
 
-    @FindBy(how= How.CSS,using="button.scroll-indicator-button:last-of-type")
-    public WebElement scrollRight;
 
-    @FindBy(how= How.CSS,using=".cookie-banner-button.btn:not(.btn-transparent)")
+    @FindBy(how = How.CSS, using = ".cookie-banner-button.btn:not(.btn-transparent)")
     public WebElement acceptCookies;
 
-    public boolean acceptOrRejectCookies(){
-      return cookies(acceptCookies);
+    /**
+     * Accept or return website cookies
+     *
+     * @return true if cookies are accepted or rejected and return false in case of any exception
+     */
+    public boolean acceptOrRejectCookies() {
+        return cookies(acceptCookies);
     }
 
+    /**
+     * click on  discoverCollectionLink in the home page
+     *
+     * @param discoverlink
+     * @return true id link is clicked else return false
+     * @throws InterruptedException
+     */
     public boolean discoverCollection(String discoverlink) throws InterruptedException {
         javascripthelper = new JavaScriptHelper(driver);
         javascripthelper.scrollToElemetAndClick(discoverCollectionLink);
-       if(discoverCollectionLink.isDisplayed()){
-           discoverCollectionLink.click();
-           log.info(discoverlink);
-           return true;
-       }
-      else
-          return false;
+        if (discoverCollectionLink.isDisplayed()) {
+            discoverCollectionLink.click();
+            log.info(discoverlink);
+            return true;
+        } else
+            return false;
 
     }
 

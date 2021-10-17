@@ -9,7 +9,6 @@ import org.junit.Assert;
 public class Home {
 
     private HomePage hPage = new HomePage(ObjectRepo.driver);
-    ;
 
 
     @Given(": Website cookie is accepted and Home page is loaded")

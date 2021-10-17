@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = {"classpath:featurefile/"},
         glue = {"classpath:com.gerimedica.stepdefinition", "classpath:com.gerimedica.helper"},
         plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber.json"},
-        tags = "@CollectionPageTitle,@SearchCollection,@VerifyPainting",
+        tags = "@CollectionPageTitle",
         monochrome = true
 )
 //   tags = "@CollectionPageTitle,@SearchCollection,@VerifyPainting")
