@@ -1,14 +1,13 @@
-Feature: Discover more about the museum and Vincent van Gogh
+Feature: Discover more about the museum Vincent van Gogh in Amsterdam
 
   Background:
-#  Given : Home page is loaded and user click on link "Ontdek de collectie"
     Given : Website cookie is accepted and Home page is loaded
     And   :  verify home page title as "Van Gogh Museum - Hét museum over Vincent van Gogh in Amsterdam"
     Then : Click on link "Ontdek de collectie" in the home page
 
 
   @CollectionPageTitle
-  Scenario Outline: Discover Van Gogh museum collection with <ScenarioCondition>
+  Scenario Outline: Validate Van Gogh museum collection page with <ScenarioCondition>
     Then  : Collection page is loaded with title <PageTitle>
     And   : Verify that you get more than <PaintingsCount> results
 
@@ -31,7 +30,7 @@ Feature: Discover more about the museum and Vincent van Gogh
 
 
   @VerifyPainting
-  Scenario Outline: Search the painting with title “Het Gele Huis” from the search box with <ScenarioCondition>
+  Scenario Outline: Verify selected painting details by checking Fnummer, JHnummer and Inventarnummer with <ScenarioCondition>
     Given : painting with title <PaintingName> is searched from the search box
     And   : Click on the <PaintingNumber> result
     Then  : Verify the painting you get by checking <F-nummer>, <JH-nummer> and <Inventarnummer>
