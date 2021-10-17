@@ -43,7 +43,7 @@ Project is configured in circleCI
 
 
 ##Important points to remember:
-- ***Logging:*** Logging currently logs with INFO level. Log level can be modified by updating log4j.properties
+- ***Logging:*** Logs with INFO ,ERROE and DEBUG level are implemented. Log level can be modified by updating log4j.properties
 - ***Unused Methods:*** Methods to return RemoteWebDriver are not used in the project
 - ***Test Report:*** Test Report is saved in Target folder.Each feature html report can be viewed under cucumber-reports and Cucumber report can  be viewed in cucumber-report-html ->cucumber-html-reports->feature-overview.html
 - ***Screenshots:*** Screenshots are capturted for failure scenarios and are stored in folder screenshots
