@@ -38,27 +38,53 @@ public class Collection extends PageBase{
     @FindBy(how=How.CSS,using=".collection-art-object-list-item>a")
     public List<WebElement> allCollectionsLink;
 
-    public int getPaintingsCount(){
-    int countArtObject = Integer.parseInt(resultCount.getText());
+    public String getPaintingsResultCount(){
+    String countArtObject = resultCount.getText();
     return countArtObject;
     }
 
-    public boolean collectionListisPositive(int count){
-       if(getPaintingsCount()>count)
-           return true;
-       else return false;
+    public boolean noPaintingFound(String noResultMessage) {
+        if (getPaintingsResultCount().equalsIgnoreCase(noResultMessage)) {
+            return true;
+        }
+        return false;
     }
 
+    public boolean collectionListisPositive(int count){
+try {
+    if (Integer.parseInt(getPaintingsResultCount()) > count)
+        return true;
+    else{
+        return false;
+    }
+}
+catch(NumberFormatException e) {
+            return false;
+        }
 
-    public void searchCollection(String collectionName) throws InterruptedException {
-       // Thread.sleep(5000);
+
+    }
+
+    /**
+     *
+     * @param collectionName
+     * @return
+     * @throws InterruptedException
+     */
+    public boolean searchCollection(String collectionName) throws InterruptedException {
         waitHelper.waitForElementVisible(searchCollection);
         searchCollection.sendKeys(collectionName);
-        clickOnSearch.click();
+       if(clickOnSearch.isDisplayed()) {
+           clickOnSearch.click();
+           return true;
+       }
+       else{
+           return false;
+       }
     }
-   //List<WebElement> allCollectionsList;
+
+    //below method is to return all the paintings name, this function is not used anywhere
     public List<String> getAllCollectionsList(List<WebElement> allCollectionsList){
-     //  allCollectionsList = allCollectionsLink;
         List<String> CollectionListByName = allCollectionsList.stream().map(i->i.getAttribute("title")).collect(Collectors.toList());
         return CollectionListByName;
     }

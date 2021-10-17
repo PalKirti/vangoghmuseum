@@ -1,8 +1,3 @@
-/**
- * @author rahul.rathore
- *	
- *	29-Jul-2016
- */
 package com.gerimedica.helper.pageobject;
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.gerimedica.helper.logger.LoggerHelper;
@@ -93,18 +88,19 @@ public class PageBase {
 		if(title == null || title.isEmpty())
 			throw new IllegalArgumentException(title);
 		System.out.println("Browser title is:"+driver.getTitle());
-		return driver.getTitle().trim().contains(title);
+		return driver.getTitle().trim().equalsIgnoreCase(title);
 	}
 
-	public void cookies(WebElement cookies){
+	public boolean cookies(WebElement cookies){
 		try {
-			System.out.println("cookis fun");
-		if(!(cookies == null) || cookies.isDisplayed())
+			if(!(cookies == null) || cookies.isDisplayed())
 		cookies.click();
 		log.info("Cookies are accepted");
+		return true;
 		} catch (Exception e) {
 			log.info("WebElement to accept cookies is not found");
 			e.printStackTrace();
+			return false;
 		}
 	}
 }

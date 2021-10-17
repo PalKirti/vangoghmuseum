@@ -13,9 +13,9 @@ Feature: Discover more about the museum and Vincent van Gogh
     And   : Verify that you get more than <PaintingsCount> results
 
     Examples:
-      | ScenarioCondition                             | PageTitle                      | PaintingsCount |
-      | valid title and atleast 1 painting is shown | "Collectie - Van Gogh Museum"  | 0              |
-      | invaliid title                             | "Collectie - Van Gogh Museum'" | 0              |
+      | ScenarioCondition                           | PageTitle                     | PaintingsCount |
+      | valid title and atleast 1 painting is shown | "Collectie - Van Gogh Museum" | 0              |
+      | invaliid title                              | "Collectie - Van Gogh Museu"  | 0              |
 
   @SearchCollection
   Scenario Outline: Search the painting with title “Het Gele Huis” from the search box with <ScenarioCondition>
@@ -24,9 +24,10 @@ Feature: Discover more about the museum and Vincent van Gogh
 
 
     Examples:
-      | ScenarioCondition                             | PaintingName     | PaintingsCount |
-      | "Correct PaintingName and PaintingCount >700" | "Het Gele Huis"  | 700            |
-      | "Incorrect PaintingName"                      | "Het Gele Huiss" | 700            |
+      | ScenarioCondition                             | PaintingName    | PaintingsCount    |
+      | Correct PaintingName and PaintingCount >700   | "Het Gele Huis" | 700               |
+      | Incorrect PaintingName and valid count number | "123a"          | 700               |
+      | Incorrect PaintingName                        | "123"           | "Geen resultaten" |
 
 
   @VerifyPainting
@@ -36,7 +37,7 @@ Feature: Discover more about the museum and Vincent van Gogh
     Then  : Verify the painting you get by checking <F-nummer>, <JH-nummer> and <Inventarnummer>
 
     Examples:
-      | ScenarioCondition                      | PaintingName    | PaintingNumber | F-nummer | JH-nummer | Inventarnummer |
+      | ScenarioCondition                    | PaintingName    | PaintingNumber | F-nummer | JH-nummer | Inventarnummer |
       | all correct test data                | "Het Gele Huis" | 1              | "F0464"  | "JH1589"  | "s0032V1962"   |
       | mismatch in Painting Name and number | "Het Gele Huis" | 2              | "F0464"  | "JH1589"  | "s0032V1962"   |
       | incorrect Fnummer                    | "Het Gele Huis" | 1              | "F046"   | "JH1589"  | "s0032V1962"   |

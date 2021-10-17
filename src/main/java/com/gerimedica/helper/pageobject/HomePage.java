@@ -27,18 +27,24 @@ public class HomePage extends PageBase{
     @FindBy(how= How.CSS,using="button.scroll-indicator-button:last-of-type")
     public WebElement scrollRight;
 
-    @FindBy(how= How.CSS,using="button.cookie-banner-button.btn-transparent")
-    public WebElement rejectCookies;
+    @FindBy(how= How.CSS,using=".cookie-banner-button.btn:not(.btn-transparent)")
+    public WebElement acceptCookies;
 
-    public void acceptOrRejectCookies(){
-        cookies(rejectCookies);
+    public boolean acceptOrRejectCookies(){
+      return cookies(acceptCookies);
     }
 
-    public void discoverCollection(String discoverlink) throws InterruptedException {
+    public boolean discoverCollection(String discoverlink) throws InterruptedException {
         javascripthelper = new JavaScriptHelper(driver);
         javascripthelper.scrollToElemetAndClick(discoverCollectionLink);
-        discoverCollectionLink.click();
-        log.info(discoverlink);
+       if(discoverCollectionLink.isDisplayed()){
+           discoverCollectionLink.click();
+           log.info(discoverlink);
+           return true;
+       }
+      else
+          return false;
+
     }
 
 }

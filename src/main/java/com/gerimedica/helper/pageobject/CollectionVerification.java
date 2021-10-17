@@ -37,11 +37,17 @@ public class CollectionVerification extends PageBase{
     public List<WebElement> getOpenObjectgegevensSection;
 
 
-    public void scrollAndClickObjectgegevens() throws InterruptedException {
+    public boolean scrollAndClickObjectgegevens() throws InterruptedException {
         javascripthelper = new JavaScriptHelper(driver);
         javascripthelper.scrollToElemet(openObjectgegevens);
         waitHelper.hardWait(5000);
-        openObjectgegevens.click();
+        if(openObjectgegevens.isDisplayed()) {
+            openObjectgegevens.click();
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public Map<String,String> getSectionValues(){

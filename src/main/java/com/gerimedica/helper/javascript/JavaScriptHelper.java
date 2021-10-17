@@ -1,8 +1,3 @@
-/**
- * rsr 
- *
- *Aug 6, 2016
- */
 package com.gerimedica.helper.javascript;
 
 

@@ -1,8 +1,3 @@
-/**
- * @author rahul.rathore
- *	
- *	07-Aug-2016
- */
 package com.gerimedica.helper.logger;
 
 import com.gerimedica.utility.ResourceHelper;

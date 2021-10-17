@@ -1,8 +1,3 @@
-/**
- * @author rahul.rathore
- *	
- *	20-Jul-2016
- */
 package com.gerimedica.utility;
 
 import java.io.FileInputStream;

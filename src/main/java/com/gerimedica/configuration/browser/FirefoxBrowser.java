@@ -1,8 +1,3 @@
-/**
- * rsr 
- *
- *Aug 6, 2016
- */
 package com.gerimedica.configuration.browser;
 import com.gerimedica.utility.ResourceHelper;
 import org.openqa.selenium.Capabilities;
