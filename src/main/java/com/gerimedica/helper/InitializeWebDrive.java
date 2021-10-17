@@ -38,8 +38,8 @@ public class InitializeWebDrive {
 
                 case Chrome:
                     ChromeBrowser chrome = ChromeBrowser.class.newInstance();
-                    //	return chrome.getChromeDriver(chrome.getChromeCapabilities());
-                    return chrome.getChromeDriver();
+                    	return chrome.getChromeDriver(chrome.getChromeCapabilities());
+                   // return chrome.getChromeDriver();
 
                 case Firefox:
                     FirefoxBrowser firefox = FirefoxBrowser.class.newInstance();

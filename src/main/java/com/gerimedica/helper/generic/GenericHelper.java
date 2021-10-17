@@ -21,6 +21,12 @@ public class GenericHelper {
 		oLog.debug("GenericHelper : " + this.driver.hashCode());
 	}
 
+	/**
+	 * Create folder if not present and set the file destination path and .jpg format
+	 * @param name
+	 * @return
+	 * @throws IOException
+	 */
 	public String takeScreenShot(String name) throws IOException {
 		File destDir = new File(ResourceHelper.getResourcePath("screenshots/")
 				+ DateTimeHelper.getCurrentDate());
@@ -41,9 +47,15 @@ public class GenericHelper {
 		return destPath.getAbsolutePath();
 	}
 
+	/**
+	 * Obtain the screenshot as base64 data
+	 * @return
+	 */
+/*
 	public String takeScreenShot() {
 		oLog.info("");
 		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	}
+*/
 
 }
