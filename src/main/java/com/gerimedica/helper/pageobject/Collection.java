@@ -45,16 +45,22 @@ public class Collection extends PageBase {
 
     public boolean noPaintingFound(String noResultMessage) {
         if (getPaintingsResultCount().equalsIgnoreCase(noResultMessage)) {
+            log.info(getPaintingsResultCount());
             return true;
         }
+
+        log.info(getPaintingsResultCount());
         return false;
     }
 
     public boolean collectionListisPositive(int count) {
         try {
-            if (Integer.parseInt(getPaintingsResultCount()) > count)
+            if (Integer.parseInt(getPaintingsResultCount()) > count) {
+                log.info("Search result count is "+getPaintingsResultCount());
                 return true;
+            }
             else {
+                log.info("Search result count is "+getPaintingsResultCount());
                 return false;
             }
         } catch (NumberFormatException e) {
@@ -76,8 +82,10 @@ public class Collection extends PageBase {
         searchCollection.sendKeys(collectionName);
         if (clickOnSearch.isDisplayed()) {
             clickOnSearch.click();
+            log.info("Painting is searched successfully");
             return true;
         } else {
+            log.info("Painting is not searched");
             return false;
         }
     }
@@ -103,8 +111,10 @@ public class Collection extends PageBase {
     public boolean clickOnPainting(int collectionIndex) {
         if (allCollectionsLink.get(collectionIndex - 1).isDisplayed()) {
             allCollectionsLink.get(collectionIndex - 1).click();
+            log.info("Painting at index "+collectionIndex+" is clicked");
             return true;
         } else
+            log.info("Painting at index "+collectionIndex+" is not clicked");
             return false;
 
     }

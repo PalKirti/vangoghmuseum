@@ -51,6 +51,7 @@ public class HomePage extends PageBase {
             log.info(discoverlink);
             return true;
         } else
+            log.info(discoverlink);
             return false;
 
     }

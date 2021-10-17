@@ -66,6 +66,7 @@ public class CollectionVerification extends PageBase {
         for (int i = 1; i < objectCollect.size(); i++) {
             objectValue.put(objectCollect.get(i).findElement(By.xpath("//div[" + i + "]/dt")).getText(), objectCollect.get(i).findElement(By.xpath("//div[" + i + "]/dd")).getText());
         }
+        log.info("Painting Object data value is added in map objectValue");
         return objectValue;
     }
 
