@@ -14,7 +14,7 @@ Below dependencies needs to be installed/configured
 
 ## Execution:
 1.. Run via TestRunner
-
+```sh
 Click on the run button on your IDE or right click on your TestRunner file and click RUN
 Execute only pom.xml file
 
@@ -23,9 +23,10 @@ Below scenarios are mentioned in disciverCollection.feature file:
  1) Validate Van Gogh museum collection page with both postive and negative test data
  2) Search the painting with title “Het Gele Huis” from the search box with both postive and negative test data
  3) Verify selected painting details by checking Fnummer, JHnummer and Inventarnummer with positive and negative test data
+```
 
 2.. Run via terminal
-
+```sh
 Running a specific tag from specific feature file
 mvn test -Dcucumber.options=<path of the featurefile.feature> -Dcucumber.options="--tags @Smoke"
  
@@ -37,19 +38,20 @@ mvn test -Dcucumber.options="src/test/resources/featurefile/discoverCollection.f
 
 Running Scenarios using Tags from Command Line
 mvn test -Dcucumber.options="--tags @tag Name"
-
+```
 
 3.. Continuous Integration
-Project is configured in circleCI
+ ```sh
+Project is configured in circleCI. Create an account in circle-ci and execute the project
+ ```
 
-
-##Important points to remember:
+## Important points to remember:
 - ***Logging:*** Logs with INFO ,ERROR and DEBUG level are implemented. Log level can be modified by updating log4j.properties
 - ***Unused Methods:*** Methods to return RemoteWebDriver are not used in the project
-- ***Test Report:*** Test Report is saved in Target folder.Each feature html report can be viewed under cucumber-reports and Cucumber report can  be viewed in cucumber-report-html ->cucumber-html-reports->feature-overview.html
+- ***Test Report:*** Test Report is saved in Target folder.Each feature html report can be viewed under cucumber-reports and Cucumber report can  be viewed in cucumber-report-html->cucumber-html-reports->feature-overview.html
 - ***Screenshots:*** Screenshots are capturted for failure scenarios and are stored in folder screenshots
 - ***Logs:*** Logs are saved in location - log
-- ***.gitignore:*** reports/, .idea/, log/, target/ are covered in .gitignore file
+- ***.gitignore:*** .idea/, logs/, target/, screenshot/ and .iml are covered in .gitignore file
 
-***There are still some bit & pieces to be completed to make the framework perfect***
+***There are still some bits & pieces to be completed to make the framework perfect***
 
