@@ -12,7 +12,8 @@ public class ResourceHelper {
 	 * @return path of the resource passed
 	 */
 	public static String getResourcePath(String resource) {
-		String path = System.getProperty("user.dir")+"/src/main/resources/" + resource;
+		//String path = System.getProperty("user.dir")+"/src/main/resources/" + resource;
+		String path = "./src/main/resources/" + resource;
 		return path;
 	}
 
